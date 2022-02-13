@@ -1,4 +1,4 @@
-# Next.js with apollo for server and client with code generation
+# Fullstack application (Next.js, GraphQL, Prisma and PostgreSQL)
 
 ## Development
 
