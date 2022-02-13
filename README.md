@@ -1,6 +1,11 @@
 # Fullstack application (Next.js, GraphQL, Prisma and PostgreSQL)
-
 ## Development
+
+Push the prisma schema into your DB:
+https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push
+```shell
+npx prisma db push
+```
 
 You can run this command and visit http://localhost:3000
 ```shell
@@ -10,15 +15,15 @@ NOTE: make sure you configure the environment variables before starting
 
 in the .env you need to set:
 ```env
-DATABASE_URL (i.e. postgresql connection string)
+DATABASE_URL (i.e. DB connection string postgresql://<username>:<password>@<db_url>:<port>/<db_name>)
 GRAPHQL_PATH (i.e. /api/graphql)
 ```
-in the next.config.js you need to set:
+in the next.config.js you can change the endpoint for the graphql api:
 ```shell
 GRAPHQL_URL (i.e. http://localhost:3000/api/graphql)
 ```
 
-The graphql endpoint is http://localhost:3000/api/graphql
+The default graphql endpoint is http://localhost:3000/api/graphql
 
 ## Code generation
 This command will generate the types and queries and hooks for the client and the server
