@@ -27,9 +27,10 @@ yarn codegen
 ```
 
 ## Backend
-- Database: PostgreSQL
+- Database: PostgreSQL (can be swapped for MYSQL, SQL Server, PlanetScale or MongoDB) 
 - ORM: prisma (https://www.prisma.io/)
 - Graphql
+- Auth0 (not yet implemented)
 
 ## Frontend
 - Next.js
