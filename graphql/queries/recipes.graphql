@@ -1,0 +1,8 @@
+query Recipes {
+    recipes {
+        id
+        name
+        rating
+        __typename
+    }
+}
