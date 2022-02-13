@@ -48,3 +48,5 @@ Opens the prisma studio gui in the browser to manage our DB models
 ```shell
 npx prisma studio
 ```
+(Prisma studio)
+![Screenshot_2022-02-13_23-51-17](https://user-images.githubusercontent.com/66938119/153778831-7f75546b-2609-40df-9373-fb079c8bc84a.png)
