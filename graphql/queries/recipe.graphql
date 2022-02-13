@@ -1,0 +1,29 @@
+query Recipe($id: String!) {
+    recipe(id: $id) {
+        name
+        rating
+        id
+        prepTime
+        serves
+        kitchenId
+        userId
+    }
+}
+
+query Recipes {
+    recipes {
+        id
+        name
+        prepTime
+        serves
+        kitchenId
+        userId
+        rating
+    }
+}
+
+mutation CreateRecipe($name: String!, $rating: Int, $prepTime: Int, $serves: Int) {
+    createRecipe(name: $name, rating: $rating, prepTime: $prepTime, serves: $serves) {
+        id
+    }
+}

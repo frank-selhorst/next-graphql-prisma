@@ -17,6 +17,8 @@ model Recipe {
     id String @id @default(cuid())
     name String
     rating Int?
+    prepTime Int?
+    serves Int?
     user User @relation(fields: [userId], references: [id])
     userId String
     kitchen Kitchen @relation(fields: [kitchenId], references: [id])
