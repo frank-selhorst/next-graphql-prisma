@@ -7,10 +7,10 @@ interface ApolloServerContext {
 
 export const resolvers: Resolvers<ApolloServerContext> = {
    Query: {
-      recipes: (parent, args, context) => {
+      recipes: (_parent, _args, context) => {
          return context.prisma.recipe.findMany();
       },
-      recipe: (parent, { id }, context) => {
+      recipe: (_parent, { id }, context) => {
          return context.prisma.recipe.findUnique({
             where: {
                id,
@@ -19,15 +19,15 @@ export const resolvers: Resolvers<ApolloServerContext> = {
       },
    },
    Mutation: {
-      createRecipe: (parent, { name, rating, prepTime, serves }, context) => {
+      createRecipe: (_parent, { name, rating, prepTime, serves }, context) => {
          return context.prisma.recipe.create({
             data: {
                name,
                rating,
                serves,
                prepTime,
-               kitchenId: 'ckzlcwfo30056x6jh6sj57eqx',
-               userId: 'ckzlcvy3k0016x6jh2j843opg', //TODO: should not be hardcoded
+               kitchenId: 'joejoejoe111',
+               userId: 'joejoejoe222', //TODO: should not be hardcoded
             },
          });
       },

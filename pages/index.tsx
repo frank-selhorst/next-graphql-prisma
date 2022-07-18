@@ -31,6 +31,7 @@ const Home: NextPage = () => {
       const serves = e.currentTarget.serves.value;
       const prepTime = e.currentTarget.prepTime.value;
       if (name && rating && serves && prepTime) {
+          console.log(name,rating,serves,prepTime)
          await createRecipe({
             variables: {
                name,

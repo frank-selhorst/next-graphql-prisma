@@ -3,6 +3,8 @@ CREATE TABLE "Recipe" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "rating" INTEGER,
+    "prepTime" INTEGER,
+    "serves" INTEGER,
     "userId" TEXT NOT NULL,
     "kitchenId" TEXT NOT NULL,
 
