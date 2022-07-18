@@ -10,7 +10,7 @@ interface RecipeListProps {
 
 export const RecipeList: React.FC<RecipeListProps> = ({ recipes }) => {
    return (
-      <Box>
+      <Box mb="10" p="5">
          <Heading>Recipes</Heading>
          <List>
             {recipes.map(recipe => (

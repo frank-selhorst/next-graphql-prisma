@@ -10,11 +10,13 @@ interface RecipeListItemProps {
 const RecipeListItem: React.FC<RecipeListItemProps> = ({ recipe }) => {
    const { name, id } = recipe;
    return (
-      <ListItem borderWidth="1px" borderRadius="md" mb="3" p="3">
-         <NextLink href={`/recipes/${id}`} passHref>
-            <Link>{name}</Link>
-         </NextLink>
-      </ListItem>
+      <NextLink href={`/recipes/${id}`} passHref>
+         <Link>
+            <ListItem borderWidth="1px" borderRadius="md" mb="3" p="3">
+               {name}
+            </ListItem>
+         </Link>
+      </NextLink>
    );
 };
 

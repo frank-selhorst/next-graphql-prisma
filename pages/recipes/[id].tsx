@@ -1,16 +1,21 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Heading, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { useRecipeQuery } from '../../generated/graphql-frontend';
+import {
+   useRecipeQuery,
+   useRemoveRecipeMutation,
+} from '../../generated/graphql-frontend';
 
-const RecipePage: React.FC = props => {
+const RecipePage: React.FC = _ => {
    const router = useRouter();
    const { id } = router.query;
-
+    
    const { data } = useRecipeQuery({
       variables: {
          id: id as string,
       },
    });
+
+   const [exec] = useRemoveRecipeMutation();
 
    const recipe = data?.recipe;
 
@@ -24,6 +29,21 @@ const RecipePage: React.FC = props => {
          <Text>Serves: {serves}</Text>
          <Text>Preperation time: {prepTime}</Text>
          <Text>Rating: {rating}</Text>
+         <Button
+            onClick={async () => {
+               await exec({
+                  variables: {
+                     id: id as string,
+                  },
+                  refetchQueries: ['Recipes']
+               })
+               router.back()
+            }}
+            mt="3"
+            colorScheme="red"
+         >
+            Remove
+         </Button>
       </Box>
    );
 };

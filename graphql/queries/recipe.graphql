@@ -27,3 +27,9 @@ mutation CreateRecipe($name: String!, $rating: Int, $prepTime: Int, $serves: Int
         id
     }
 }
+
+mutation RemoveRecipe($id: String!) {
+    removeRecipe(id: $id) {
+      id
+    }
+}

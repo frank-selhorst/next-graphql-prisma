@@ -2,10 +2,13 @@
   "name": "recipes-graphql-next",
   "private": true,
   "scripts": {
-    "dev": "yarn codegen && next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "next dev",
+    "build": "yarn codegen && yarn migrate:deploy && next build",
+    "start": "next start --port ${PORT-3000}",
+    "migrate:dev": "prisma migrate dev --preview-feature",
+    "migrate:deploy": "prisma migrate deploy --preview-feature",
+    "migrate:status": "prisma migrate status --preview-feature",
+    "generate": "prisma generate",
     "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {

@@ -31,5 +31,9 @@ export const resolvers: Resolvers<ApolloServerContext> = {
             },
          });
       },
+      removeRecipe: async (_parent, { id }, context) => {
+         const isDeleted = await context.prisma.recipe.delete({ where: { id: id } });
+         return isDeleted
+      },
    },
 };

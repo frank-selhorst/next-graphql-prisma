@@ -19,7 +19,7 @@ import { RecipeList } from '../components/recipe-list/recipe-list';
 const Home: NextPage = () => {
    const [createRecipe] = useCreateRecipeMutation();
    const { data, loading } = useRecipesQuery({
-      ssr: true,
+      ssr: false,
    });
 
    const recipes = data?.recipes || [];
@@ -30,8 +30,8 @@ const Home: NextPage = () => {
       const rating = e.currentTarget.rating.value;
       const serves = e.currentTarget.serves.value;
       const prepTime = e.currentTarget.prepTime.value;
+
       if (name && rating && serves && prepTime) {
-          console.log(name,rating,serves,prepTime)
          await createRecipe({
             variables: {
                name,
@@ -47,9 +47,9 @@ const Home: NextPage = () => {
    return (
       <Box>
          {loading && <Spinner />}
-         <RecipeList recipes={recipes} />
-         <Box mt="20" p="5">
-            <Heading>Create recipe</Heading>
+         {recipes && recipes.length > 0 && <RecipeList recipes={recipes} />}
+         <Box p="5" pt="0">
+            <Heading textStyle={'h2'}>Create recipe</Heading>
             <form onSubmit={handleSubmit}>
                <FormControl mb="5">
                   <FormLabel htmlFor="recipe_name">Recipe name</FormLabel>

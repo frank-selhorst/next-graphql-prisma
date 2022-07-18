@@ -17,6 +17,7 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation';
   createRecipe: Recipe;
+  removeRecipe?: Maybe<Recipe>;
 };
 
 
@@ -25,6 +26,11 @@ export type MutationCreateRecipeArgs = {
   prepTime?: InputMaybe<Scalars['Int']>;
   rating?: InputMaybe<Scalars['Int']>;
   serves?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type MutationRemoveRecipeArgs = {
+  id: Scalars['String'];
 };
 
 export type Query = {
@@ -138,6 +144,7 @@ export type ResolversParentTypes = {
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createRecipe?: Resolver<ResolversTypes['Recipe'], ParentType, ContextType, RequireFields<MutationCreateRecipeArgs, 'name'>>;
+  removeRecipe?: Resolver<Maybe<ResolversTypes['Recipe']>, ParentType, ContextType, RequireFields<MutationRemoveRecipeArgs, 'id'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {

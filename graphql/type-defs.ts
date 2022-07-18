@@ -22,5 +22,9 @@ export const typeDefs = gql`
          prepTime: Int
          serves: Int
       ): Recipe!
+
+      removeRecipe(
+        id: String!
+      ): Recipe
    }
 `;
